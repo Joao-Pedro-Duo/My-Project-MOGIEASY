@@ -1,0 +1,282 @@
+<Gerenciador>:
+    TelaHome:
+        name: "home"
+    TelaHorarios:
+        name: "horarios"
+    TelaMapa:
+        name: "mapa"
+    TelaPagamentos:
+        name: "pagamentos"
+
+
+
+ScreenManager:
+    id: screen_manager
+
+    TelaHome:
+        name: "home"
+        manager: screen_manager
+    TelaHorarios:
+        name: "horarios"
+        manager: screen_manager
+    TelaMapa:
+        name: "mapa"
+        manager: screen_manager
+    TelaPagamentos:
+        name: "pagamentos"
+        manager: screen_manager
+
+    
+
+<TelaHome>:
+    BoxLayout:
+        orientation: "vertical"
+
+
+        AnchorLayout:
+            anchor_x: "center"
+            anchor_y: "center"
+
+
+            Image:
+                source: "Logo Mogi easy.png" # logo Mogi easy 
+                size_hint: None, None
+                size: 400, 400
+                allow_stretch: True
+                keep_ratio: True
+
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.2
+            padding: [10, 10]
+            spacing: 10
+
+
+            Widget: # Deixa o botão à direita
+
+
+            Button:
+                size_hint: None, None
+                size: "40dp", "40dp"
+                background_normal: ""
+                background_down: ""
+                on_release: root.toggle_theme()
+
+                Image:
+                    source: "Brilho icone.png"
+                    allow_stretch: True
+                    keep_ratio: True
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    size: self.parent.size
+
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: 20
+            spacing: 10
+
+            Label:
+                text: "Bem-vindo ao MOGIEASY"
+                font_size: "22sp"
+                halign: "center"
+                color: app.text_color
+
+
+    # Rodapé fixo
+    BoxLayout:
+        size_hint_y: 0.1
+        spacing: 5
+        padding: [5, 5]
+
+        Button:
+            text: "Home"
+            background_color: (1,1,1,1) # Ativo
+            on_release: app.mudar_tela("home")
+        Button:
+            text: "Horários"
+            background_color: (0.7,0.7,0.7,1)
+            on_release: app.mudar_tela("horarios")
+        Button:
+            text: "Mapa"
+            background_color: (0.7,0.7,0.7,1)
+            on_release: app.mudar_tela("mapa")
+        Button:
+            text: "Pagamentos"
+            background_color: (0.7,0.7,0.7,1)
+            on_release: app.mudar_tela("pagamentos")
+
+
+
+<TelaHorarios>:
+    BoxLayout:
+        orientation: "vertical"
+
+        BoxLayout:
+            size_hint_y: 0.1
+            spacing: 5
+            padding: [5, 5]
+
+            Button:
+                text: "Horários"
+                on_release: sub_manager.current = "sub_horarios"
+            Button:
+                text: "Rotas"
+                on_release: sub_manager.current = "sub_rotas"
+
+
+        # ScreenManager interno
+        ScreenManager:
+            id: sub_manager
+
+            SubTelaHorarios:
+                name: "sub_horarios"
+
+            SubTelaRotas:
+                name: "sub_rotas"
+
+
+
+    BoxLayout:
+        size_hint_y: 0.1
+        spacing: 5
+        padding: [5, 5]
+
+        Button:
+            text: "Home"
+            background_color: (0.7,0.7,0.7,1)
+            on_release: app.mudar_tela("home")
+        Button:
+            text: "Horários"
+            background_color: (1,1,1,1) # Ativo
+            on_release: app.mudar_tela("horarios")
+        Button:
+            text: "Mapa"
+            background_color: (0.7,0.7,0.7,1)
+            on_release: app.mudar_tela("mapa")
+        Button:
+            text: "Pagamentos"
+            background_color: (0.7,0.7,0.7,1)
+            on_release: app.mudar_tela("pagamentos")
+
+
+
+<SubTelaHorarios>:
+    BoxLayout:
+        orientation:"vertical"
+        padding: 10
+        spacing: 10
+
+
+        Label:
+            text: "Selecione um Terminal"
+            color: app.text_color
+        Spinner:
+            id: terminal_spinner
+            text: "Selecione"
+            values: []
+
+        
+        Label:
+            text: "Selecione uma Linha"
+            color: app.text_color
+        Spinner:
+            id: linha_spinner
+            text: "Selecione"
+            values: []
+
+        
+        Label:
+            text: "Horários:"
+            color: app.text_color
+        Label:
+            id: info_label
+            text: "Aqui vão aparecer os horários..."
+            color: app.text_color
+
+
+
+<SubTelaRotas>:
+    BoxLayout:
+        orientation:"vertical"
+        padding: 10
+        spacing: 10
+
+
+    Label:
+        text: "Rota:"
+        color: app.text_color
+    ScrollView:
+        Label:
+            id: rota_label
+            text: "Aqui vão aparecer as rotas..."
+            size_hint_y: None
+            height: self.texture_size[1]
+            color: app.text_color
+
+
+
+<TelaMapa>:
+    BoxLayout:
+        orientation: "vertical"
+
+        Label:
+            text: "Mapa (em breve)"
+            color: app.text_color
+
+        BoxLayout:
+            size_hint_y: 0.1
+            spacing: 5
+            padding: [5, 5]
+
+            Button:
+                text: "Home"
+                background_color: (0.7,0.7,0.7,1)
+                on_release: app.mudar_tela("home")
+            Button:
+                text: "Horários"
+                background_color: (0.7,0.7,0.7,1) 
+                on_release: app.mudar_tela("horarios")
+            Button:
+                text: "Mapa"
+                background_color: (1,1,1,1) # Ativo
+                on_release: app.mudar_tela("mapa")
+            Button:
+                text: "Pagamentos"
+                background_color: (0.7,0.7,0.7,1) 
+                on_release: app.mudar_tela("pagamentos")
+
+
+
+<TelaPagamentos>:
+    BoxLayout:
+        orientation: "vertical"
+
+        Label:
+            text: "Área de Pagamentos (em breve)"
+            color: app.text_color
+
+        BoxLayout:
+            size_hint_y: 0.1
+            spacing: 5
+            padding: [5, 5]
+
+            Button:
+                text: "Home"
+                background_color: (0.7,0.7,0.7,1)
+                on_release: app.mudar_tela("home")
+            Button:
+                text: "Horários"
+                background_color: (0.7,0.7,0.7,1) 
+                on_release: app.mudar_tela("horarios")
+            Button:
+                text: "Mapa"
+                background_color: (0.7,0.7,0.7,1)
+                on_release: app.mudar_tela("mapa")
+            Button:
+                text: "Pagamentos"
+                background_color: (1,1,1,1) # Ativo
+                on_release: app.mudar_tela("pagamentos")
+
+
