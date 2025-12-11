@@ -1,7 +1,4 @@
 # Mogi Easy
-
- ---
- 
 Aplicativo desenvolvido em Python + Kivy para facilitar o acesso aos horários e rotas de ônibus municipais de Mogi das Cruzes. A proposta é criar uma interface simples, rápida e acessível para usuários que dependem do transporte coletivo.
 
 **Descrição:**
@@ -16,22 +13,21 @@ O Mogi Easy centraliza informações que normalmente ficam dispersas em PDFs, si
 
 - Interface responsiva desenvolvida com Kivy
 
-  ## Tecnologias Utilizadas
-  
-  ---
-  
-    - **Python 3.x**
-
-    - **Kivy (UI)**
-
-  ## Funcionalidades
-
   ---
 
-    - Listagem das linhas disponíveis
+## Tecnologias Utilizadas
 
-    - Exibição dos horários de cada linha
+  - **Python 3.x**
+  - **Kivy (UI)**
 
-    - Navegação entre telas usando ScreenManager
+  ---
+  
+## Funcionalidades
 
-    - Pesquisa rápida de linhas
+  - Listagem das linhas disponíveis
+
+  - Exibição dos horários de cada linha
+
+  - Navegação entre telas usando ScreenManager
+
+  - Pesquisa rápida de linhas
