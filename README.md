@@ -13,14 +13,14 @@ O Mogi Easy centraliza informações que normalmente ficam dispersas em PDFs, si
 
 - Interface responsiva desenvolvida com Kivy
 
-  ---
+---
 
 ## Tecnologias Utilizadas
 
   - **Python 3.x**
   - **Kivy (UI)**
 
-  ---
+---
   
 ## Funcionalidades
 
